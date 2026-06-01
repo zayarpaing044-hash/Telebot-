@@ -6,7 +6,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 TELEGRAM_TOKEN = '8890575246:AAGfsKU8l5v7t4mt6fmwIbiqjz0uYiXXoA4'
-OPENROUTER_KEY = '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'
+OPENROUTER_KEY = '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'
 WEBHOOK_URL = 'https://telebot-production-1e1b.up.railway.app'
 
 logging.basicConfig(level=logging.INFO)
