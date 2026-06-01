@@ -1,6 +1,4 @@
-import logging
-import json
-import urllib.request
+import logging, json, urllib.request
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
@@ -10,7 +8,7 @@ GROQ_KEY='gsk_hYJgP7QESJ7az9IrWF7zWGdyb3FYRWj9Mp3hjx2f'
 logging.basicConfig(level=logging.INFO)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('မင်္ဂလာပါ! ဘာများ ကူညီရမလ?')
+    await update.message.reply_text('မင်္ဂလာပါ!')
 
 async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     m = update.message.text
@@ -29,7 +27,6 @@ def main():
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
     app.add_handler(CommandHandler('start', start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle))
-    print('Bot started!')
     app.run_polling()
 
 if __name__ == '__main__':
