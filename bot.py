@@ -6,19 +6,19 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 TELEGRAM_TOKEN = '8890575246:AAGfsKU8l5v7t4mt6fmwIbiqjz0uYiXXoA4'
-OPENROUTER_KEY = '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'
+GROQ_KEY = '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'
 WEBHOOK_URL = 'https://telebot-production-1e1b.up.railway.app'
 
 logging.basicConfig(level=logging.INFO)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('မင်္ဂလာပါ! ဘာများ ကူညီရမလဲ?')
+    await update.message.reply_text('မင်္ဂလာပါ! ဘာများ ကူညရမလဲ?')
 
 async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     m = update.message.text
-    url = 'https://openrouter.ai/api/v1/chat/completions'
-    h = {'Authorization': 'Bearer ' + OPENROUTER_KEY, 'Content-Type': 'application/json'}
-    d = {'model': 'meta-llama/llama-3.1-8b-instruct:free', 'messages': [{'role': 'user', 'content': m}]}
+    url = 'https://api.groq.com/openai/v1/chat/completions'
+    h = {'Authorization': 'Bearer ' + GROQ_KEY, 'Content-Type': 'application/json'}
+    d = {'model': 'llama3-8b-8192', 'messages': [{'role': 'user', 'content': m}]}
     try:
         req = urllib.request.Request(url, data=json.dumps(d).encode(), headers=h)
         with urllib.request.urlopen(req) as r:
