@@ -7,6 +7,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 
 TELEGRAM_TOKEN = '8890575246:AAGfsKU8l5v7t4mt6fmwIbiqjz0uYiXXoA4'
 OPENROUTER_KEY = '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'
+WEBHOOK_URL = 'https://telebot-production-1e1b.up.railway.app'
 
 logging.basicConfig(level=logging.INFO)
 
@@ -30,8 +31,8 @@ if __name__ == '__main__':
     app = Application.builder().token(TELEGRAM_TOKEN).build()
     app.add_handler(CommandHandler('start', start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle))
-    port = int(os.environ.get('PORT', 8443))
     app.run_webhook(
         listen='0.0.0.0',
-        port=port,
-        webhook_url=f'https://{os.environ.get("RAILWAY
+        port=8443,
+        webhook_url=WEBHOOK_URL + '/' + TELEGRAM_TOKEN
+    )
