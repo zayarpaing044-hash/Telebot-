@@ -2,7 +2,7 @@ import logging
 import json
 import urllib.request
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-
+ 
 TELEGRAM_TOKEN='8837627590:AAFKV8PFZ4p8Ne0R2qeUgQZiizh-TeSGsYE'
 GROQ_KEY='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'
 
