@@ -4,7 +4,8 @@ import json
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
-TELEGRAM_TOKEN = '8890575246:AAEoQ1YuJVK2g2WlmcDfHN4DJJQk-mdIQkk'
+TELEGRAM_TOKEN = '8890575246:AAGfsKU8l5v7t4mt6fmwIbiqjz0uYiXXoA4'
+
 GEMINI_KEY = 'AIzaSyAb8RN6JhRanwBeLt95oz02lm3N33iQQxd9PKdbfsHJd7Z3u0gA'
 
 logging.basicConfig(level=logging.INFO)
